@@ -49,7 +49,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			}
 			cnt := 1
 			cpos := stripChangePos.FindStringSubmatch(chg)
-			fmt.Fprintln(os.Stderr,cpos)
+			fmt.Fprintln(os.Stderr,chg)
 			spos := 0
 			col = s.SynonymousColor
 			if len(cpos) == 4 && (cpos[3] != "" && cpos[3] != "=" && cpos[3] != cpos[1]) {
