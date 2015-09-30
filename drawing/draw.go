@@ -222,6 +222,6 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 	}
 
 	sort.Sort(d.ticks)
-	mt.Fprintf(os.Stderr,  d)
+	fmt.Fprintf(os.Stderr,  d)
 	return d
 }
