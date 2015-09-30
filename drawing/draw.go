@@ -53,6 +53,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			
 			spos := 0
 			col = s.SynonymousColor
+			fmt.Fprintln(os.Stderr,chg)
 			if len(cpos) == 4 && (cpos[3] != "" && cpos[3] != "=" && cpos[3] != cpos[1]) {
 				col = s.MutationColor
 			}
@@ -84,7 +85,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				pops = append(pops, Tick{Pos: spos, Pri: -i, Cnt: cnt, Col: col, Ht: ht})
 			}
 		}
-		 fmt.Fprintln(os.Stderr,pops)
+		fmt.Fprintln(os.Stderr,pops)
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
