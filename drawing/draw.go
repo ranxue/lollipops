@@ -136,7 +136,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				isLollipop: true,
 				label:      changelist[-pop.Pri],
 				x:          spos,
-				y:          mytop,
+				y:          mytop - pop.Radius(h),
 				r:          pop.Radius(s),
 			})
 		}
