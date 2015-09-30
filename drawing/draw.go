@@ -48,8 +48,9 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				continue
 			}
 			cnt := 1
+			ht := 1
 			cpos := stripChangePos.FindStringSubmatch(chg)
-			fmt.Fprintln(os.Stderr,chg)
+			
 			spos := 0
 			col = s.SynonymousColor
 			if len(cpos) == 4 && (cpos[3] != "" && cpos[3] != "=" && cpos[3] != cpos[1]) {
@@ -65,23 +66,24 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				col = "#" + parts[1]
 				chg = parts[0]
 			}
-			fmt.Fprintln(os.Stderr,chg)
-			// if strings.Contains(chg, "$") {
-			// 	parts := strings.SplitN(chg, "$", 2)
-			// 	fmt.Sscanf(parts[1], "%d", &cnt)
-			// 	chg = parts[0]
-			// }
+			if strings.Contains(chg, "$") {
+			 	parts := strings.SplitN(chg, "$", 2)
+			 	fmt.Sscanf(parts[1], "%d", &ht)
+			 	chg = parts[0]
+			}
 
 			changelist[i] = chg
 			fmt.Sscanf(cpos[2], "%d", &spos)
 			col = strings.ToLower(col)
 			if idx, f := popMatch[chg+col]; f {
 				pops[idx].Cnt += cnt
+				pops[idx].Ht += ht
 			} else {
 				popMatch[chg+col] = len(pops)
-				pops = append(pops, Tick{Pos: spos, Pri: -i, Cnt: cnt, Col: col})
+				pops = append(pops, Tick{Pos: spos, Pri: -i, Cnt: cnt, Col: col, Ht: ht})
 			}
 		}
+		fmt.Fprintln(os.Stderr,pops)
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
