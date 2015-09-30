@@ -86,27 +86,20 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 		}
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
-		flag := pops[0].Height(s)
 		for pi, pop := range pops {
-			
 			h := s.LollipopRadius + s.LollipopHeight
-			h +=  pops[pi].Height(s)
 			for pj := pi + 1; pj < len(pops); pj++ {
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				h += 0.5 + (pop.Radius(s) * 3.0) 
+				h += 0.5 + (pop.Radius(s) * 3.0)
 			}
 			if h > maxStaggered {
 				maxStaggered = h
 			}
-			if pops[pi].Height(s) > flag {
-				flag = pops[pi].Height(s)
-			}
 		}
 		s.GraphicHeight += maxStaggered
-		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight + flag)
-
+		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight)
 	}
 	if !s.HideAxis {
 		s.GraphicHeight += s.AxisPadding + s.AxisHeight
@@ -120,7 +113,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 
 	if len(pops) > 0 {
 		poptop := startY + s.LollipopRadius
-		popbot := poptop + s.LollipopHeight 
+		popbot := poptop + s.LollipopHeight
 		startY = popbot - (s.DomainHeight-s.BackboneHeight)/2
 
 		// position lollipops
@@ -131,7 +124,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) 
+				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0)
 			}
 
 			d.ticks = append(d.ticks, Tick{
@@ -142,7 +135,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				isLollipop: true,
 				label:      changelist[-pop.Pri],
 				x:          spos,
-				y:          pop.Height(s),
+				y:          mytop,
 				r:          pop.Radius(s),
 			})
 		}
