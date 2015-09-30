@@ -49,6 +49,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			}
 			cnt := 1
 			cpos := stripChangePos.FindStringSubmatch(chg)
+			fmt.Fprintln(cpos)
 			spos := 0
 			col = s.SynonymousColor
 			if len(cpos) == 4 && (cpos[3] != "" && cpos[3] != "=" && cpos[3] != cpos[1]) {
@@ -64,6 +65,13 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				col = "#" + parts[1]
 				chg = parts[0]
 			}
+
+			// if strings.Contains(chg, "$") {
+			// 	parts := strings.SplitN(chg, "$", 2)
+			// 	fmt.Sscanf(parts[1], "%d", &cnt)
+			// 	chg = parts[0]
+			// }
+
 			changelist[i] = chg
 			fmt.Sscanf(cpos[2], "%d", &spos)
 			col = strings.ToLower(col)
