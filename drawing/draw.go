@@ -100,6 +100,8 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 		}
 		s.GraphicHeight += maxStaggered
 		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight)
+		fmt.Fprintf(os.Stderr,  s.LollipopRadius)
+		fmt.Fprintf(os.Stderr,  s.LollipopHeight)
 	}
 	if !s.HideAxis {
 		s.GraphicHeight += s.AxisPadding + s.AxisHeight
@@ -222,6 +224,6 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 	}
 
 	sort.Sort(d.ticks)
-	fmt.Fprintf(os.Stderr,  d.ticks)
+	//fmt.Fprintf(os.Stderr,  d.ticks)
 	return d
 }
