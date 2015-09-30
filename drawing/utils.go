@@ -16,7 +16,8 @@ type Tick struct {
 	Pri int
 	Cnt int
 	Col string
-
+	Ht int
+	
 	isLollipop bool
 	label      string
 	x          float64
