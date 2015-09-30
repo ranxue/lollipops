@@ -83,7 +83,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				pops = append(pops, Tick{Pos: spos, Pri: -i, Cnt: cnt, Col: col, Ht: ht})
 			}
 		}
-		// fmt.Fprintln(os.Stderr,pops)
+		 fmt.Fprintln(os.Stderr,pops)
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
