@@ -17,7 +17,7 @@ type Tick struct {
 	Cnt int
 	Col string
 	Ht int
-	
+
 	isLollipop bool
 	label      string
 	x          float64
@@ -87,4 +87,12 @@ func (t *Tick) Radius(s *Settings) float64 {
 		return s.LollipopRadius
 	}
 	return math.Sqrt(math.Log(float64(2+t.Cnt)) * s.LollipopRadius * s.LollipopRadius)
+}
+
+
+func (t *Tick) Height(s *Settings) float64 {
+	if t.Ht <= 1 {
+		return s.LollipopHeight
+	}
+	return math.Sqrt(math.Log(float64(2+t.Ht)) * s.LollipopHeight * s.LollipopHeight)
 }

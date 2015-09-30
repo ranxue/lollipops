@@ -92,7 +92,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				h += 0.5 + (pop.Radius(s) * 3.0)
+				h += 0.5 + (pop.Radius(s) * 3.0) + pop.Height(s)
 			}
 			if h > maxStaggered {
 				maxStaggered = h
@@ -124,7 +124,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0)
+				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) + pop.Height(s)
 			}
 
 			d.ticks = append(d.ticks, Tick{

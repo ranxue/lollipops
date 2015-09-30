@@ -61,7 +61,7 @@ var DefaultSettings = Settings{
 	MutationColor:   "#ff0000",
 
 	LollipopRadius: 4,
-	LollipopHeight: 100,
+	LollipopHeight: 28,
 	BackboneHeight: 14,
 	MotifHeight:    18,
 	DomainHeight:   24,
