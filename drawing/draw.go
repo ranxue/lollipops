@@ -58,7 +58,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				col = s.MutationColor
 			}
 			if strings.Contains(chg, "_") {
-				fmt.Fprintln(os.Stderr,chg)
+				fmt.Fprintln(os.Stderr,"Yes")
 			 	parts := strings.SplitN(chg, "_", 2)
 			 	fmt.Sscanf(parts[1], "%d", &ht)
 			 	chg = parts[0]
