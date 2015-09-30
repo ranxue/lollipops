@@ -66,8 +66,8 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				col = "#" + parts[1]
 				chg = parts[0]
 			}
-			if strings.Contains(chg, "$") {
-			 	parts := strings.SplitN(chg, "$", 2)
+			if strings.Contains(chg, "|") {
+			 	parts := strings.SplitN(chg, "|", 2)
 			 	fmt.Sscanf(parts[1], "%d", &ht)
 			 	chg = parts[0]
 			}
@@ -83,7 +83,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				pops = append(pops, Tick{Pos: spos, Pri: -i, Cnt: cnt, Col: col, Ht: ht})
 			}
 		}
-		fmt.Fprintln(os.Stderr,pops)
+		// fmt.Fprintln(os.Stderr,pops)
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
