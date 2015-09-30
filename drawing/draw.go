@@ -87,7 +87,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
-			h := s.LollipopRadius + s.LollipopHeight + pops[pj].Height(s)
+			h := s.LollipopRadius + s.LollipopHeight + pops[pi].Height(s)
 			for pj := pi + 1; pj < len(pops); pj++ {
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
