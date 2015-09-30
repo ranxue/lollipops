@@ -56,19 +56,19 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			if len(cpos) == 4 && (cpos[3] != "" && cpos[3] != "=" && cpos[3] != cpos[1]) {
 				col = s.MutationColor
 			}
-			if strings.Contains(chg, "@") {
-				parts := strings.SplitN(chg, "@", 2)
+			if strings.Contains(chg, "#") {
+				parts := strings.SplitN(chg, "#", 2)
 				fmt.Sscanf(parts[1], "%d", &cnt)
 				chg = parts[0]
 			}
 			if strings.Contains(chg, "#") {
 				parts := strings.SplitN(chg, "#", 2)
-				col = "#" + parts[1]
+				col = "#" + parts[2]
 				chg = parts[0]
 			}
-			if strings.Contains(chg, "b") {
-			 	parts := strings.SplitN(chg, "b", 2)
-			 	fmt.Sscanf(parts[1], "%d", &ht)
+			if strings.Contains(chg, "#") {
+			 	parts := strings.SplitN(chg, "#", 2)
+			 	fmt.Sscanf(parts[3], "%d", &ht)
 			 	chg = parts[0]
 			}
 
