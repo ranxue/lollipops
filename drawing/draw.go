@@ -99,7 +99,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			}
 		}
 		s.GraphicHeight += maxStaggered
-		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight)
+		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight + h)
 
 	}
 	if !s.HideAxis {
@@ -114,7 +114,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 
 	if len(pops) > 0 {
 		poptop := startY + s.LollipopRadius
-		popbot := poptop + s.LollipopHeight
+		popbot := poptop + s.LollipopHeight + h
 		startY = popbot - (s.DomainHeight-s.BackboneHeight)/2
 
 		// position lollipops
@@ -125,7 +125,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) + (pops[pj].Height(s) * 3.0)
+				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) 
 			}
 
 			d.ticks = append(d.ticks, Tick{
