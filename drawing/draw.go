@@ -65,7 +65,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				col = "#" + parts[1]
 				chg = parts[0]
 			}
-
+			fmt.Fprintln(os.Stderr,chg)
 			// if strings.Contains(chg, "$") {
 			// 	parts := strings.SplitN(chg, "$", 2)
 			// 	fmt.Sscanf(parts[1], "%d", &cnt)
