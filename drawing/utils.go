@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/pbnjay/lollipops/data"
+	"github.com/ranxue/lollipops/data"
 )
 
 var stripChangePos = regexp.MustCompile("(^|[A-Za-z]*)([0-9]+)([A-Za-z]*)")

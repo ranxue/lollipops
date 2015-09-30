@@ -6,7 +6,7 @@ import (
 	"strings"
 	"unicode"
 	"os"
-	"github.com/pbnjay/lollipops/data"
+	"github.com/ranxue/lollipops/data"
 )
 
 type diagram struct {
