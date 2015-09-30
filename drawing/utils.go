@@ -23,6 +23,7 @@ type Tick struct {
 	x          float64
 	y          float64
 	r          float64
+	h          float64
 }
 
 type TickSlice []Tick

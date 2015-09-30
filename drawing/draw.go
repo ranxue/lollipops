@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 	"unicode"
-	//"os"
+	"os"
 	"github.com/ranxue/lollipops/data"
 )
 
@@ -137,6 +137,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				x:          spos,
 				y:          mytop,
 				r:          pop.Radius(s),
+				h:          pop.Height(s),
 			})
 		}
 	}
@@ -221,5 +222,6 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 	}
 
 	sort.Sort(d.ticks)
+	mt.Fprintf(os.Stderr,  d)
 	return d
 }
