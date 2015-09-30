@@ -87,7 +87,8 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 		sort.Sort(pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
-			h := s.LollipopRadius + s.LollipopHeight + pops[pi].Height(s)
+			s.LollipopHeight += pops[pi].Height(s)
+			h := s.LollipopRadius + s.LollipopHeight
 			for pj := pi + 1; pj < len(pops); pj++ {
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
@@ -99,7 +100,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			}
 		}
 		s.GraphicHeight += maxStaggered
-		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight + h)
+		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight)
 
 	}
 	if !s.HideAxis {
@@ -114,7 +115,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 
 	if len(pops) > 0 {
 		poptop := startY + s.LollipopRadius
-		popbot := poptop + s.LollipopHeight + h
+		popbot := poptop + s.LollipopHeight 
 		startY = popbot - (s.DomainHeight-s.BackboneHeight)/2
 
 		// position lollipops
