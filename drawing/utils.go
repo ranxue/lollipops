@@ -94,5 +94,5 @@ func (t *Tick) Height(s *Settings) float64 {
 	if t.Ht <= 1 {
 		return s.LollipopHeight
 	}
-	return t.Ht
+	return math.Sqrt(math.Log(float64(2+t.Ht)) * s.LollipopHeight * s.LollipopRadius)
 }

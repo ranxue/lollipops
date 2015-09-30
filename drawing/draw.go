@@ -85,7 +85,6 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			}
 		}
 		sort.Sort(pops)
-		fmt.Fprintf(os.Stderr,pops)
 		maxStaggered := s.LollipopRadius + s.LollipopHeight
 		for pi, pop := range pops {
 			h := s.LollipopRadius + s.LollipopHeight
@@ -101,8 +100,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 		}
 		s.GraphicHeight += maxStaggered
 		startY += maxStaggered - (s.LollipopRadius + s.LollipopHeight)
-		fmt.Printf("%f\n",  s.LollipopRadius)
-		fmt.Printf("%f\n",  s.LollipopHeight)
+
 	}
 	if !s.HideAxis {
 		s.GraphicHeight += s.AxisPadding + s.AxisHeight
