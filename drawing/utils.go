@@ -23,7 +23,6 @@ type Tick struct {
 	x          float64
 	y          float64
 	r          float64
-	h          float64
 }
 
 type TickSlice []Tick
@@ -95,5 +94,5 @@ func (t *Tick) Height(s *Settings) float64 {
 	if t.Ht <= 1 {
 		return s.LollipopHeight
 	}
-	return math.Sqrt(math.Log(float64(2+t.Ht)) * s.LollipopHeight * s.LollipopHeight)
+	return t.Ht
 }
