@@ -124,7 +124,7 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 				if pops[pj].Pos-pop.Pos > popSpace {
 					break
 				}
-				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) + pop.Height(s)
+				mytop -= 0.5 + (pops[pj].Radius(s) * 3.0) + pops[pj].Height(s)
 			}
 
 			d.ticks = append(d.ticks, Tick{
