@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/pbnjay/lollipops/data"
+	"github.com/ranxue/lollipops/data"
 )
 
 const svgHeader = `<?xml version='1.0'?>

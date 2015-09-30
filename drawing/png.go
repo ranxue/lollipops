@@ -10,7 +10,7 @@ import (
 
 	"code.google.com/p/jamslam-freetype-go/freetype"
 
-	"github.com/pbnjay/lollipops/data"
+	"github.com/ranxue/lollipops/data"
 )
 
 func DrawPNG(w io.Writer, dpi float64, changelist []string, g *data.PfamGraphicResponse) {

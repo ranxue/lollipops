@@ -77,11 +77,11 @@ the area is exponentially proportional to the count indicated. Examples:
 
 ##Installation
 
-Head over to the [Releases](https://github.com/pbnjay/lollipops/releases) to
+Head over to the [Releases](https://github.com/ranxue/lollipops/releases) to
 download the latest version for your system in a simple command-line executable.
 
 If you already have Go installed and want the bleeding edge, just
-``go get -u github.com/pbnjay/lollipops`` to download the latest version.
+``go get -u github.com/ranxue/lollipops`` to download the latest version.
 
 ##Embedding
 
@@ -93,8 +93,8 @@ package main
 import (
     "os"
 
-    "github.com/pbnjay/lollipops/data"
-    "github.com/pbnjay/lollipops/drawing"
+    "github.com/ranxue/lollipops/data"
+    "github.com/ranxue/lollipops/drawing"
 )
 
 func main() {

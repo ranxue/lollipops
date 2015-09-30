@@ -11,7 +11,7 @@ import (
 )
 
 // BiomartXML is the query used to translate HGNC Symbol into Uniprot/SwissProt Accession
-const BiomartXML = `<!DOCTYPE Query><Query client="github.com/pbnjay/lollipops" processor="TSV" limit="-1" header="0">
+const BiomartXML = `<!DOCTYPE Query><Query client="github.com/ranxue/lollipops" processor="TSV" limit="-1" header="0">
 	<Dataset name="hsapiens_gene_ensembl" config="gene_ensembl_config">
 	<Filter name="with_uniprotswissprot" value="only" filter_list=""/>
 	<Filter name="hgnc_symbol" value="%s" filter_list=""/>
