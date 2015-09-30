@@ -100,8 +100,8 @@ func (s *Settings) prepare(changelist []string, g *data.PfamGraphicResponse) *di
 			if h > maxStaggered {
 				maxStaggered = h
 			}
-			if h > flag {
-				flag = h
+			if pops[pi].Height(s) > flag {
+				flag = pops[pi].Height(s)
 			}
 		}
 		s.GraphicHeight += maxStaggered
