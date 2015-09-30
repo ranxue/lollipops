@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pbnjay/lollipops/data"
-	"github.com/pbnjay/lollipops/drawing"
+	"github.com/ranxue/lollipops/data"
+	"github.com/ranxue/lollipops/drawing"
 )
 
 var (
