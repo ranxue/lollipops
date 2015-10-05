@@ -41,7 +41,7 @@ func (s *diagram) svg(w io.Writer) {
 	scale := (s.GraphicWidth - s.Padding*2) / float64(aaLen)
 	aaSpace := int(20 / scale)
 
-	fmt.Fprintf(w, svgHeader, s.GraphicWidth, s.GraphicHeight)
+	fmt.Fprintf(w, svgHeader)
 
 	//////
 
